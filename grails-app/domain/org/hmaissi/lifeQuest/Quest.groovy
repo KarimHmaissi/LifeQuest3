@@ -6,7 +6,10 @@ class Quest {
     String primarySkill
     String secondarySkill
 
-    Player owner
+    long ownerId
+
+    String imageUrl
+    String description
 
     static hasMany = [links: Link]
 

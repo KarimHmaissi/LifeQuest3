@@ -30,24 +30,41 @@
         <div class="wrapper-content">
             <div class="container-fluid">
                 <div class="row-fluid">
-                    <div class="span3">
-                        <div class="questImage">
 
+                    <div class="block span9">
+                        <div class="block-body">
+                            <h2>Quest Title: ${quest?.title}</h2>
+
+                            <p class="questDescription">${quest.description}</p>
+
+                            <g:each in="${quest.links}" var="link" status="i">
+                                <g:render template="templates/singleTask" bean="${link}" model="[number: i+1]"></g:render>
+                            </g:each>
+                        </div>
+
+                    </div>
+
+                    <div class="block span3">
+                        <p class="block-heading">
+                            <span class="block-icon pull-right">
+                                <a href="#" class="demo-cancel-click" rel="tooltip" title="" data-original-title="settings"><i class="icon-cog"></i></a>
+                            </span>
+
+                            <span>Quest Creator</span>
+                        </p>
+                        <div class="block-body">
+                            <div class="questImage">
+                                <g:img dir="images" file="bootstrap.png" class="questThumbnailImage"></g:img>
+                            </div>
+                            <div class="questOwner">
+                                <a href="profile/${username}"><h2><strong>${username}</strong></h2></a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="span9">
-                        <h2>Quest Title: ${quest?.title}</h2>
-
-                        <p class="questDescription">${quest.description}</p>
-
-                        <g:each in="${quest.links}" var="link" status="i">
-                            <g:render template="templates/singleLink" bean="${link}" model="[number: i+1]"></g:render>
-                        </g:each>
-
-                    </div>
-
                 </div>
+
+                <g:render template="templates/questComments"></g:render>
             </div>
         </div><!-- wrapper-content -->
     </div><!-- content -->

@@ -1,6 +1,6 @@
-.container-fluid {
-    padding: 25px;
-}
+/*.container-fluid {*/
+    /*padding: 25px;*/
+/*}*/
 
 /**
  * Links (Quest entries)
@@ -18,8 +18,8 @@
 
 .linkContainer {
     margin-bottom: 50px;
-    background-color: #F2F2F2;
-    padding: 10px;
+    /*background-color: #F2F2F2;*/
+    /*padding: 10px;*/
 }
 
 .number {

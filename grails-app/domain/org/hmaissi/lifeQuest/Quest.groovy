@@ -11,7 +11,11 @@ class Quest {
     String imageUrl
     String description
 
-    static hasMany = [links: Link]
+    Date dateCreated
+
+    Integer timesCompleted
+
+    static hasMany = [tasks: Task]
 
 
     static constraints = {

@@ -3,13 +3,12 @@ package org.hmaissi.lifeQuest
 
 
 import grails.test.mixin.*
-import org.junit.*
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
-@TestFor(Link)
-class LinkTests {
+@TestFor(Task)
+class TaskTests {
 
     void testSomething() {
         fail "Implement me"

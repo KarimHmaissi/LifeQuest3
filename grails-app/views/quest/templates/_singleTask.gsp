@@ -19,6 +19,7 @@
 
         <h4>XP Gain: +${it.xpGain} Points</h4>
 
+
         %{--<div class="progress progress-striped">--}%
             %{--<div class="bar" style="width: ${it.xpGain}%;"></div>--}%
         %{--</div>--}%

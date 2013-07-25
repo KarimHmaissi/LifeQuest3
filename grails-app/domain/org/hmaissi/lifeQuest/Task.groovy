@@ -1,6 +1,6 @@
 package org.hmaissi.lifeQuest
 
-class Link {
+class Task {
 
     String title
     String description
@@ -8,6 +8,8 @@ class Link {
     String imageUrl
     String type
     Integer xpGain
+
+    static belongsTo = [quest: Quest]
 
     static constraints = {
     }

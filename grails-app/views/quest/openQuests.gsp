@@ -21,8 +21,10 @@
             <h1>Open Quests</h1>
             <div class="row-fluid">
                 <g:each in="${quests}" var="quest" status="i">
-                    <div class="span3">
-                        <g:render template="templates/questThumbnail" bean="${quest}"></g:render>
+                    <div class="block span3">
+                        <div class="block-body">
+                            <g:render template="templates/questThumbnail" bean="${quest}"></g:render>
+                        </div>
                     </div>
                 </g:each>
 

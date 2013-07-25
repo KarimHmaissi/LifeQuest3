@@ -20,6 +20,7 @@
         <div class="container-fluid">
             <div class="row-fluid">
                 <h1>Your Profile</h1>
+
             </div>
         </div>
     </div><!-- wrapper-content -->

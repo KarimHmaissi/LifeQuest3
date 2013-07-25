@@ -13,7 +13,8 @@ class Player {
 
     static hasMany =  [completedQuests : Quest,
             openQuests: Quest,
-            achievements: Achievement]
+            achievements: Achievement,
+            completedTasks: Task]
 
     Integer xpPoints
     Integer level

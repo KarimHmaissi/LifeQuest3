@@ -9,8 +9,6 @@ class Task {
     String type
     Integer xpGain
 
-    static belongsTo = [quest: Quest]
-
     static constraints = {
     }
 }

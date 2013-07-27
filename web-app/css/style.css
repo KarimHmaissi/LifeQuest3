@@ -37,6 +37,10 @@
     -webkit-border-radius: 40px;
 }
 
+.taskComplete {
+    color:green;
+}
+
 /**
  * Quests
  */
@@ -45,3 +49,11 @@
     width:200px;
     height:100px;
 }
+
+/*.questComplete {*/
+    /*color:purple;*/
+/*}*/
+
+/*.questOpen {*/
+    /*color:orange;*/
+/*}*/

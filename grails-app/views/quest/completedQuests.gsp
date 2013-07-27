@@ -23,7 +23,7 @@
                 <g:each in="${quests}" var="quest" status="i">
                     <div class="block span3">
                         <div class="block-body">
-                            <g:render template="templates/questThumbnail" bean="${quest}"></g:render>
+                            <g:displayQuest quest="${quest}" allOpen="${false}" allCompleted="${true}"></g:displayQuest>
                         </div>
                     </div>
                 </g:each>

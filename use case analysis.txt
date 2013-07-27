@@ -1,0 +1,12 @@
+View open quests+
+View finished quests+
+View all quests in quest library and sort by : dateCreated, topic, numberCompleted, upvotes
+Complete quest item
+Upload work related to quest 
+Upvote quest
+Downvote quest 
+Complete entire quest moved to completed quests
+Create a profile
+View other peoples profile
+Comment on quest
+View comments related to quest 

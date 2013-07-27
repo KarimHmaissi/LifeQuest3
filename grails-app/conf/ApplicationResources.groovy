@@ -20,5 +20,9 @@ modules = {
         resource url:'css/font-awesome.css'
     }
 
+    jquery {
+        resource url:'js/jquery-1.8.2.min.js'
+    }
+
 
 }

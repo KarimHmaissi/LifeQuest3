@@ -24,11 +24,33 @@ class QuestController {
 
         completedTasks.retainAll(tasks)
 
+        def questOpen = false
+        def questComplete = false
+
+        //check if quest is open by player
+        if (player.openQuests.contains(quest)) {
+            questOpen = true
+        }
+
+        //check if quest is complete by player
+        if (player.completedQuests.contains(quest)) {
+            questComplete = true
+            println "quest completed"
+        }
+
         if (quest && player) {
 
             def questOwner = Player.get(quest.ownerId)
             def username = questOwner.username
-            render(view: "quest", model: [quest:quest, username:username, completedTasks:completedTasks])
+
+//            println "quest complete? : " + questComplete
+//            println "quest open? : " + questOpen
+
+            render(view: "quest", model: [quest: quest,
+                    username: username,
+                    completedTasks: completedTasks,
+                    questOpen: questOpen,
+                    questComplete: questComplete])
 
         } else {
             //redirect to quest library
@@ -39,7 +61,18 @@ class QuestController {
     def questLibrary() {
 
         def quests = Quest.all
-        render(view: "questLibrary", model: [quests:quests])
+        def player  = Player.get(springSecurityService.principal.id)
+        if (player) {
+            def completedQuests = player.completedQuests
+            def openQuests = player.openQuests
+            render(view: "questLibrary", model: [quests: quests,
+                    completedQuests: completedQuests,
+                    openQuests: openQuests])
+        } else {
+            //Show all quests
+            render(view: "questLibrary", model: [quests: quests])
+        }
+
     }
 
 
@@ -72,9 +105,12 @@ class QuestController {
     }
 
     def completeTask() {
+        println "task Completed"
         def taskId = params.taskId
+        def questId = params.questId
         def player = Player.get(springSecurityService.principal.id)
-        if (taskId && player) {
+
+        if (taskId && player && questId) {
 
             def task = Task.get(taskId)
             def xpGain = task.xpGain
@@ -99,7 +135,7 @@ class QuestController {
             }
 
             //Check if quest is complete
-            def quest = task.quest
+            def quest = Quest.get(questId)
             def questCompleted = isQuestComplete(player, quest)
 
             if (questCompleted) {

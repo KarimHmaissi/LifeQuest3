@@ -1,4 +1,4 @@
-<div class="row-fluid linkContainer" id="${task.id}">
+<div class="row-fluid linkContainer">
     <div class="span1">
         <div class="number">${number}</div>
     </div>

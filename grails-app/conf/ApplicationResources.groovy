@@ -24,5 +24,10 @@ modules = {
         resource url:'js/jquery-1.8.2.min.js'
     }
 
+    pnotify {
+        resource url:'js/jquery.pnotify.min.js'
+        resource url:'css/jquery.pnotify.default.css'
+    }
+
 
 }

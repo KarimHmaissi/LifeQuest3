@@ -17,6 +17,7 @@ class Player {
             completedTasks: Task]
 
     Integer xpPoints
+//    Integer pointsTillNextLevel
     Integer level
 
 

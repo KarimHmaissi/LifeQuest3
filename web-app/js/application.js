@@ -68,8 +68,16 @@ function addTaskHandler() {
 
 function showLevelUpNotification(xpGain, newLevel) {
     console.log("level up: " + newLevel);
+    $.pnotify({
+        title: 'Level Up!',
+        text: 'Woop woop you\'ve levelled up! '
+    });
 }
 
 function showXpGainNotification(xpGain) {
     console.log("xp gain! + " + xpGain);
+    $.pnotify({
+        title: 'Xp Gain!',
+        text: 'More xp: ' + xpGain
+    });
 }

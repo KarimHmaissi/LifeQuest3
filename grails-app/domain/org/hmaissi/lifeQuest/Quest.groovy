@@ -17,7 +17,7 @@ class Quest {
 
     static hasMany = [tasks: Task]
 
-
     static constraints = {
+
     }
 }

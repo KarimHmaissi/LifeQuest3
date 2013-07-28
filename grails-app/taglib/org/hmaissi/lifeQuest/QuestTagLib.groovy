@@ -36,6 +36,78 @@ class QuestTagLib {
                 [quest:quest, isOpen:isOpen, isCompleted:isCompleted])
     }
 
+    def displayQuestStatus = {attrs, body ->
+        def questList = attrs.questList
+        def player = attrs.player
+
+        def output = ""
+        def percentComplete
+
+        for(Quest quest: questList) {
+            percentComplete = getQuestCompletePercentage(player, quest)
+            output += render(template: "templates/questStatus", model: [quest:quest, percentComplete:percentComplete])
+        }
+
+        out << output
+    }
+
+    def renderQuestStatus() {
+
+    }
+
+    /**
+     * Calculates how much of a quest a player has completed
+     * @param player
+     * @param quest
+     * @return
+     */
+    private int getQuestCompletePercentage(Player player,Quest quest) {
+
+        println "completed tasks by player"
+        for(Long id: player.completedTasks.id) {
+            print "id: " + id
+        }
+
+        println "quest tasks"
+        for(Long id: quest.tasks.id) {
+            print "id: " + id
+        }
+
+        def tasks = quest.tasks
+
+        def totalTasksInQuest = tasks.size()
+        def completedTasks = 0
+
+        tasks.retainAll(player.completedTasks)
+
+        completedTasks = tasks.size()
+
+        if (totalTasksInQuest != 0) {
+            return (completedTasks / totalTasksInQuest) * 100
+        } else {
+            return 0
+        }
+
+
+//        def tasksCompleted = player.completedTasks.id
+//        def totalTasks = quest.tasks.size()
+//
+//
+//        tasksCompleted = totalTasks.retainAll((tasksCompleted))
+//
+//        println "tasks completed size" + tasksCompleted.size()
+//        println "total tasks " +totalTasks
+//
+//        if (totalTasks != 0) {
+//            return (tasksCompleted.size() / totalTasks) * 100
+//        } else {
+//            return 0
+//        }
+
+
+
+    }
+
     private boolean isQuestOpen(openQuests, questId) {
         for(Long openQuestId : openQuests.id) {
             if(openQuestId == questId) {

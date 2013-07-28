@@ -41,7 +41,6 @@
                         <div class="block span9 quest" id="${quest?.id}">
                     </g:else>
 
-                    <div class="block span9 quest" id="${quest?.id}">
                         <div class="block-body">
                             <h2>Quest Title: ${quest?.title}</h2>
 

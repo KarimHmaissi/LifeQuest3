@@ -19,7 +19,7 @@
 
     %{--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>--}%
 
-    <r:require modules="bootstrap, austra, fontAwesome, application, jquery"/>
+    <r:require modules="bootstrap, austra, fontAwesome, application, jquery, pnotify"/>
 
     <g:layoutHead/>
     <r:layoutResources />

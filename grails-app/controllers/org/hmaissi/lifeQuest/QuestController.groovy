@@ -18,8 +18,11 @@ class QuestController {
         def player = Player.get(springSecurityService.principal.id)
         def quest = Quest.get(questId)
 
-        //Check which tasks have already been completed by the player
-        def completedTasks = player.completedTasks
+        //Check which tasks have already been completed by the player TODO wierd problem with refrencing player.completedTasks
+        def completedTasks = new ArrayList<>()
+        completedTasks.addAll(player.completedTasks)
+//        def playerCompletedTasks = player.completedTasks
+
         def tasks = quest.tasks
 
         completedTasks.retainAll(tasks)
@@ -40,6 +43,7 @@ class QuestController {
 
         if (quest && player) {
 
+            //Pull the username of the quest owner
             def questOwner = Player.get(quest.ownerId)
             def username = questOwner.username
 
@@ -126,12 +130,15 @@ class QuestController {
             player.xpPoints +=  xpGain
 
             //Check for level up
-            def newLevel = levellingService.checkForLevelUp(player)
+            def newLevel = levellingService.getLevelFromXp(player.xpPoints)
 
             if (newLevel != player.level) {
                 //add level up and new level to json
                 json.newLevel = newLevel
                 json.levelUp = true
+
+                //update level for player
+                player.level = newLevel
             }
 
             //Check if quest is complete
@@ -160,8 +167,11 @@ class QuestController {
     private boolean isQuestComplete(Player player, Quest quest) {
         if (player != null & quest != null) {
 
-            def completedTasks = player.completedTasks
             def tasks = quest.tasks
+
+            def completedTasks = new ArrayList<>()
+            completedTasks.addAll(player.completedTasks)
+
             completedTasks.retainAll(tasks)
 
             if (completedTasks.size() == tasks.size()) {

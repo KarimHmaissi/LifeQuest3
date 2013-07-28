@@ -5,7 +5,13 @@ class PlayerController {
     def springSecurityService
 
     def index() {
-
+        //render profile
+        def player = Player.get(springSecurityService.principal.id)
+        if (player) {
+            render(view:"index", model:[player:player])
+        } else {
+            //error
+        }
     }
 
     def addQuestToOpen() {

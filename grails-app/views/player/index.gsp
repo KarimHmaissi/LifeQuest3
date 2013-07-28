@@ -18,8 +18,12 @@
 <div class="content">
     <div class="wrapper-content">
         <div class="container-fluid">
+            <h1>Your Profile</h1>
             <div class="row-fluid">
-                <h1>Your Profile</h1>
+                <g:render template="templates/profileInfo" bean="${player}"></g:render>
+                <g:render template="templates/openQuests" bean="${player}"></g:render>
+                <g:render template="templates/completedQuests" bean="${player}"></g:render>
+
 
             </div>
         </div>
